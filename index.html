@@ -3,137 +3,88 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Seni Çok Seviyorum ❤️</title>
-
+<title>BONUS MERKEZİ</title>
 <style>
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+font-family:Arial, sans-serif;
 }
-
 body{
-background:linear-gradient(135deg,#ff4d6d,#ff85a2,#ffb3c1);
-overflow:hidden;
-height:100vh;
-}
-
-#loading{
-position:fixed;
-width:100%;
-height:100%;
+background:linear-gradient(135deg,#111,#222,#000);
+min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-background:linear-gradient(135deg,#ff4d6d,#ff85a2);
-color:white;
-z-index:9999;
 }
-
-#loading h1{
-font-size:40px;
+.container{
+width:95%;
+max-width:500px;
 text-align:center;
-animation:pulse 1s infinite;
-}
-
-#main{
-display:none;
-height:100vh;
-justify-content:center;
-align-items:center;
 padding:20px;
 }
-
-.card{
-background:rgba(255,255,255,.15);
-backdrop-filter:blur(15px);
-padding:40px 30px;
-border-radius:30px;
-text-align:center;
-color:white;
-width:100%;
-max-width:380px;
-box-shadow:0 10px 30px rgba(0,0,0,.15);
-}
-
-.card h2{
+.logo{
 font-size:38px;
+font-weight:bold;
 margin-bottom:15px;
+background:linear-gradient(90deg,gold,silver,gold);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:blink 1.2s infinite;
 }
-
-.card p{
-font-size:20px;
-line-height:1.8;
+.desc{
+color:#ddd;
+margin-bottom:25px;
+font-size:15px;
 }
-
-.heart{
-position:fixed;
-top:-20px;
-color:white;
-pointer-events:none;
-animation:fall linear forwards;
+.link{
+display:block;
+text-decoration:none;
+padding:18px;
+margin:12px 0;
+border-radius:15px;
+font-weight:bold;
+font-size:18px;
+color:#fff;
+background:linear-gradient(90deg,#c9a227,#e5e4e2,#c9a227);
+box-shadow:0 0 20px rgba(255,215,0,.4);
+transition:.3s;
+animation:glow 1.5s infinite;
 }
-
-@keyframes fall{
-from{
-transform:translateY(-20px);
-opacity:1;
+.link:hover{
+transform:scale(1.05);
 }
-to{
-transform:translateY(110vh);
-opacity:0;
+.footer{
+margin-top:25px;
+color:#999;
+font-size:12px;
 }
+@keyframes blink{
+50%{opacity:.4;}
 }
-
-@keyframes pulse{
+@keyframes glow{
 50%{
-transform:scale(1.08);
+box-shadow:0 0 35px gold;
 }
 }
 </style>
 </head>
 <body>
-
-<div id="loading">
-<h1>❤️ Kalbimin sahibi gelmiş❤️</h1>
+<div class="container">
+<div class="logo">BONUS MERKEZİ</div>
+<div class="desc">
+🎁 En Güncel Bonuslar ve Kampanyalar
 </div>
-
-<div id="main">
-<div class="card">
-<h2>❤️</h2>
-<p>
-Seni Çok Seviyorum ❤️<br><br>
-İyi ki varsın...
-Benim için çok özel ve çok güzelsin hayatımın anlamı güzel hatunum😍
-</p>
+<a href="#" class="link">💰 1000₺ Deneme Bonusu</a>
+<a href="#" class="link">🔥 3000₺ Hoşgeldin Paketi</a>
+<a href="#" class="link">⚡ Kayıpsız Çevrimsiz Bonus</a>
+<a href="#" class="link">🎯 Günlük Promosyonlar</a>
+<a href="#" class="link">🚀 Özel VIP Fırsatlar</a>
+<a href="#" class="link">📢 Telegram Kanalı</a>
+<div class="footer">
+⭐ PREMİUM LÜX CASİNO
 </div>
 </div>
-
-<script>
-
-setTimeout(() => {
-document.getElementById("loading").style.display="none";
-document.getElementById("main").style.display="flex";
-},3000);
-
-function createHeart(){
-const heart=document.createElement("div");
-heart.classList.add("heart");
-heart.innerHTML="❤️";
-heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=(Math.random()*25+15)+"px";
-heart.style.animationDuration=(Math.random()*4+3)+"s";
-document.body.appendChild(heart);
-
-setTimeout(()=>{
-heart.remove();
-},7000);
-}
-
-setInterval(createHeart,250);
-
-</script>
-
 </body>
 </html>
