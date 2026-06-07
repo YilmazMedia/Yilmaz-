@@ -5,63 +5,68 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RichBonus</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
 body{
-background:
-linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.9)),
-url('https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1600');
-background-size:cover;
-background-attachment:fixed;
-color:white;
-}
-header{
-padding:25px;
-text-align:center;
-backdrop-filter:blur(10px);
-background:rgba(0,0,0,.5);
-border-bottom:2px solid #00ff88;
-}
-.logo{
-font-size:48px;
-font-weight:900;
-color:#00ff88;
-text-shadow:0 0 20px #00ff88;
+background:#0b0b0b;
+color:#fff;
 }
 .hero{
-padding:60px 20px;
+min-height:70vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 text-align:center;
+padding:40px;
+background:
+linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.85)),
+radial-gradient(circle at top,#1b4332,#081c15);
+}
+.logo{
+font-size:60px;
+font-weight:900;
+color:#00ff88;
+margin-bottom:15px;
 }
 .hero h1{
-font-size:44px;
-margin-bottom:15px;
+font-size:40px;
+margin-bottom:10px;
 }
 .hero p{
 color:#ccc;
-font-size:18px;
+max-width:700px;
+}
+.telegram-btn{
+margin-top:25px;
+background:#229ED9;
+padding:15px 30px;
+border-radius:12px;
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+.section-title{
+text-align:center;
+padding:40px 20px 20px;
+font-size:32px;
 }
 .cards{
-max-width:1200px;
+max-width:1400px;
 margin:auto;
 padding:20px;
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:25px;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
 }
 .card{
-background:rgba(20,20,20,.85);
-border:1px solid rgba(0,255,136,.25);
-border-radius:25px;
+background:#141414;
+border:1px solid #222;
+border-radius:20px;
 padding:25px;
 text-align:center;
-backdrop-filter:blur(12px);
-box-shadow:0 0 25px rgba(0,255,136,.15);
-transition:.3s;
-}
-.card:hover{
-transform:translateY(-6px);
 }
 .site{
-font-size:28px;
+font-size:24px;
 font-weight:bold;
 color:#00ff88;
 }
@@ -70,80 +75,96 @@ font-size:42px;
 font-weight:900;
 margin:20px 0;
 }
-.info{
-color:#ccc;
+.desc{
+color:#bbb;
 margin-bottom:20px;
 }
 .btn{
 display:block;
-padding:15px;
+padding:14px;
 background:#00ff88;
-color:black;
-font-weight:bold;
+color:#000;
 text-decoration:none;
-border-radius:15px;
+border-radius:12px;
+font-weight:bold;
 }
-.telegram{
-max-width:800px;
+.info{
+max-width:1200px;
 margin:40px auto;
 padding:20px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
 }
-.telegram a{
-display:block;
-background:#229ED9;
-padding:18px;
-border-radius:18px;
+.box{
+background:#141414;
+padding:25px;
+border-radius:20px;
 text-align:center;
-font-size:22px;
-font-weight:bold;
-text-decoration:none;
-color:white;
 }
 footer{
 text-align:center;
 padding:30px;
-color:#999;
+color:#888;
+border-top:1px solid #222;
+margin-top:40px;
+}
+@media(max-width:900px){
+.cards{grid-template-columns:repeat(2,1fr);}
+.info{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+.cards{grid-template-columns:1fr;}
 }
 </style>
 </head>
 <body>
-<header>
-<div class="logo">RICHBONUS</div>
-</header>
 <section class="hero">
+<div class="logo">RICHBONUS</div>
 <h1>Güncel Deneme Bonusları</h1>
-<p>En güncel bonus fırsatlarını keşfedin.</p>
+<p>En güncel bonus fırsatlarını tek sayfada keşfedin.</p>
+<a class="telegram-btn" href="https://t.me/Richofficall">Telegram Kanalına Katıl</a>
 </section>
+<h2 class="section-title">Bonus Fırsatları</h2>
 <div class="cards">
 <div class="card">
 <div class="site">BETPARİ</div>
-<div class="bonus">₺1.000</div>
-<div class="info">Deneme Bonusu</div>
-<a href="#" class="btn">HEMEN İNCELE</a>
+<div class="bonus">₺1000</div>
+<div class="desc">Deneme Bonusu</div>
+<a class="btn" href="#">İncele</a>
 </div>
 <div class="card">
 <div class="site">BAHİSBEY</div>
 <div class="bonus">₺500</div>
-<div class="info">Deneme Bonusu</div>
-<a href="#" class="btn">HEMEN İNCELE</a>
+<div class="desc">Deneme Bonusu</div>
+<a class="btn" href="#">İncele</a>
 </div>
 <div class="card">
 <div class="site">GOLEY90</div>
-<div class="bonus">₺1.000</div>
-<div class="info">Deneme Bonusu</div>
-<a href="#" class="btn">HEMEN İNCELE</a>
+<div class="bonus">₺1000</div>
+<div class="desc">Deneme Bonusu</div>
+<a class="btn" href="#">İncele</a>
 </div>
 <div class="card">
 <div class="site">BETPLAY</div>
-<div class="bonus">₺1.500</div>
-<div class="info">Deneme Bonusu</div>
-<a href="#" class="btn">HEMEN İNCELE</a>
+<div class="bonus">₺1500</div>
+<div class="desc">Deneme Bonusu</div>
+<a class="btn" href="#">İncele</a>
 </div>
 </div>
-<div class="telegram">
-<a href="https://t.me/Richofficall">
-📢 Telegram Kanalına Katıl
-</a>
+<div class="info">
+<div class="box">
+<h3>Telegram</h3>
+<p>@Richofficall</p>
+</div>
+<div class="box">
+<h3>Güncel Bonuslar</h3>
+<p>Yeni fırsatlar düzenli olarak eklenir.</p>
+</div>
+<div class="box">
+<h3>Destek</h3>
+<p>Telegram üzerinden ulaşabilirsiniz.</p>
+</div>
 </div>
 <footer>
 © 2026 RichBonus
