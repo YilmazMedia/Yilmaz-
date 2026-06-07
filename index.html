@@ -2,59 +2,108 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>BetPlay</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BP Admin Panel</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
 body{background:#0f172a;color:#fff}
-header{background:#111827;padding:20px}
-.logo{font-size:32px;font-weight:bold;color:#3b82f6}
-nav a{color:#fff;text-decoration:none;margin:0 15px}
-.hero{padding:100px 20px;text-align:center;background:linear-gradient(135deg,#0f172a,#1e3a8a)}
-.hero h1{font-size:50px;margin-bottom:15px}
-.hero p{font-size:18px;color:#cbd5e1}
-.btn{display:inline-block;background:#3b82f6;color:#fff;padding:14px 30px;border-radius:8px;text-decoration:none;margin-top:20px}
-.cards{display:flex;gap:20px;justify-content:center;padding:50px;flex-wrap:wrap}
-.card{background:#1e293b;padding:25px;width:280px;border-radius:15px}
-footer{background:#111827;padding:25px;text-align:center;color:#94a3b8}
+.sidebar{position:fixed;left:0;top:0;width:250px;height:100vh;background:#111827;padding:20px}
+.logo{font-size:30px;font-weight:bold;color:#3b82f6;margin-bottom:30px}
+.menu a{display:block;color:#fff;text-decoration:none;padding:12px;border-radius:8px;margin-bottom:8px}
+.menu a:hover{background:#1e293b}
+.main{margin-left:250px;padding:25px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.card{background:#1e293b;padding:20px;border-radius:15px}
+.card h3{font-size:15px;color:#94a3b8}
+.card h2{font-size:32px;margin-top:10px}
+.panel{background:#1e293b;padding:20px;border-radius:15px;margin-top:20px}
+table{width:100%;border-collapse:collapse}
+th,td{padding:12px;text-align:left;border-bottom:1px solid #334155}
+.btn{background:#3b82f6;color:#fff;border:none;padding:8px 15px;border-radius:6px;cursor:pointer}
+.notice{background:#0f172a;padding:12px;border-radius:10px;margin-top:10px}
+input,textarea{width:100%;padding:10px;margin-top:10px;background:#0f172a;border:1px solid #334155;color:#fff;border-radius:8px}
 </style>
 </head>
 <body>
 
-<header>
-<div class="logo">BP</div>
-<nav>
-<a href="#">Ana Sayfa</a>
-<a href="#">Hakkımızda</a>
-<a href="#">Hizmetler</a>
-<a href="#">İletişim</a>
-</nav>
-</header>
-
-<section class="hero">
-<h1>BetPlay Kurumsal Platform</h1>
-<p>Modern tasarım, güvenli altyapı ve profesyonel hizmet anlayışı.</p>
-<a href="#" class="btn">Hemen Başla</a>
-</section>
-
-<section class="cards">
-<div class="card">
-<h3>Güvenlik</h3>
-<p>SSL koruması ve gelişmiş güvenlik sistemleri.</p>
+<div class="sidebar">
+<div class="logo">BP ADMIN</div>
+<div class="menu">
+<a href="#">📊 Dashboard</a>
+<a href="#">👥 Kullanıcılar</a>
+<a href="#">📢 Duyurular</a>
+<a href="#">⚙️ Ayarlar</a>
+<a href="#">📨 Destek</a>
 </div>
-<div class="card">
-<h3>Hızlı Destek</h3>
-<p>7/24 müşteri hizmetleri desteği.</p>
 </div>
-<div class="card">
-<h3>Mobil Uyumlu</h3>
-<p>Tüm cihazlarda kusursuz görünüm.</p>
-</div>
-</section>
 
-<footer>
-© 2026 BetPlay - Tüm Hakları Saklıdır
-</footer>
+<div class="main">
+
+<h1>Yönetim Paneli</h1>
+
+<div class="cards">
+<div class="card"><h3>Toplam Kullanıcı</h3><h2>12.584</h2></div>
+<div class="card"><h3>Aktif Kullanıcı</h3><h2>4.219</h2></div>
+<div class="card"><h3>Bugünkü Ziyaret</h3><h2>18.902</h2></div>
+<div class="card"><h3>Destek Talepleri</h3><h2>82</h2></div>
+</div>
+
+<div class="panel">
+<h2>Son Kullanıcılar</h2>
+<br>
+<table>
+<tr>
+<th>ID</th>
+<th>Kullanıcı</th>
+<th>Durum</th>
+<th>İşlem</th>
+</tr>
+<tr>
+<td>1</td>
+<td>demo_user</td>
+<td>Aktif</td>
+<td><button class="btn">Düzenle</button></td>
+</tr>
+<tr>
+<td>2</td>
+<td>test_user</td>
+<td>Beklemede</td>
+<td><button class="btn">Düzenle</button></td>
+</tr>
+<tr>
+<td>3</td>
+<td>admin_demo</td>
+<td>Aktif</td>
+<td><button class="btn">Düzenle</button></td>
+</tr>
+</table>
+</div>
+
+<div class="panel">
+<h2>Duyuru Yönetimi</h2>
+<input type="text" placeholder="Duyuru Başlığı">
+<textarea rows="4" placeholder="Duyuru İçeriği"></textarea>
+<br><br>
+<button class="btn">Duyuru Yayınla</button>
+<div class="notice">📢 Sistem güncellemesi planlanmıştır.</div>
+</div>
+
+<div class="panel">
+<h2>Site Ayarları</h2>
+<input type="text" value="BP Platform">
+<input type="email" value="info@example.com">
+<br><br>
+<button class="btn">Kaydet</button>
+</div>
+
+<div class="panel">
+<h2>Aktivite Kayıtları</h2>
+<div class="notice">Admin giriş yaptı.</div>
+<div class="notice">Yeni kullanıcı oluşturuldu.</div>
+<div class="notice">Duyuru yayınlandı.</div>
+</div>
+
+</div>
 
 </body>
 </html>
