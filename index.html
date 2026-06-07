@@ -3,210 +3,144 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PERISU MARKETING</title>
+<title>Seni Seviyorum ❤️</title>
 
 <style>
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Segoe UI,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
 }
 
 body{
-background:#080b14;
-color:white;
+    background:linear-gradient(135deg,#ff4b6e,#ff7eb3,#7b61ff);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
 }
 
-header{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:linear-gradient(135deg,#001f4d,#0a0a0a,#7a0000);
+.container{
+    width:90%;
+    max-width:800px;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:30px;
+    padding:50px;
+    text-align:center;
+    color:white;
+    box-shadow:0 20px 50px rgba(0,0,0,0.3);
 }
 
-.hero h1{
-font-size:70px;
-background:linear-gradient(90deg,#00a2ff,#ff2a2a);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+h1{
+    font-size:55px;
+    margin-bottom:20px;
+    text-shadow:0 0 15px rgba(255,255,255,0.5);
 }
 
-.hero p{
-margin-top:20px;
-font-size:22px;
-color:#d8d8d8;
+p{
+    font-size:22px;
+    line-height:1.8;
+}
+
+.heart{
+    font-size:100px;
+    animation:beat 1s infinite;
+    margin-bottom:20px;
+}
+
+@keyframes beat{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.2);}
+    100%{transform:scale(1);}
 }
 
 .btn{
-display:inline-block;
-margin-top:30px;
-padding:15px 40px;
-background:linear-gradient(90deg,#007bff,#ff2020);
-border-radius:50px;
-text-decoration:none;
-color:white;
-font-weight:bold;
-box-shadow:0 0 20px #007bff;
-transition:.3s;
+    margin-top:30px;
+    padding:15px 40px;
+    border:none;
+    border-radius:50px;
+    background:white;
+    color:#ff4b6e;
+    font-size:20px;
+    cursor:pointer;
+    transition:.3s;
 }
 
 .btn:hover{
-transform:scale(1.1);
+    transform:scale(1.1);
 }
 
-.services{
-padding:80px 10%;
+#message{
+    margin-top:25px;
+    font-size:24px;
+    font-weight:bold;
+    color:#fff;
 }
 
-.services h2{
-text-align:center;
-font-size:40px;
-margin-bottom:50px;
+span{
+    position:absolute;
+    color:#fff;
+    animation:fall linear infinite;
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-
-.card{
-background:#101727;
-padding:30px;
-border-radius:20px;
-border:1px solid #1f355e;
-transition:.4s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-border-color:#00a2ff;
-box-shadow:0 0 25px rgba(0,162,255,.5);
-}
-
-.card h3{
-margin-bottom:15px;
-color:#00a2ff;
-}
-
-.card p{
-color:#cfcfcf;
-line-height:1.6;
-}
-
-.banner{
-padding:100px 10%;
-text-align:center;
-background:linear-gradient(90deg,#006eff,#ff1d1d);
-}
-
-.banner h2{
-font-size:50px;
-margin-bottom:20px;
-}
-
-.banner p{
-font-size:22px;
-}
-
-footer{
-padding:40px;
-text-align:center;
-background:#050505;
-color:#999;
+@keyframes fall{
+    0%{
+        transform:translateY(-100px);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(110vh);
+        opacity:0;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<div class="hero">
-<h1>PERISU MARKETING</h1>
-<p>Profesyonel Reklam ve Büyüme Hizmetleri</p>
-<a href="#hizmetler" class="btn">Hizmetleri İncele</a>
-</div>
-</header>
+<div class="container">
+    <div class="heart">❤️</div>
 
-<section class="services" id="hizmetler">
-<h2>Hizmetlerimiz</h2>
+    <h1>Seni Seviyorum</h1>
 
-<div class="grid">
+    <p>
+        İyi ki varsın güzellim...<br>
+        Hayatımın en güzel tesadüfü sensin.<br>
+        Her günüm seninle daha anlamlı. ❤️
+    </p>
 
-<div class="card">
-<h3>📢 Meta Reklam</h3>
-<p>Meta platformlarında profesyonel reklam yönetimi.</p>
-</div>
+    <button class="btn" onclick="showLove()">
+        Mesajımı Oku 💌
+    </button>
 
-<div class="card">
-<h3>💰 Ads Reklam</h3>
-<p>Google Ads ve görüntülü reklam kampanyaları.</p>
+    <div id="message"></div>
 </div>
 
-<div class="card">
-<h3>📷 Instagram Reklam</h3>
-<p>Hedef kitleye yönelik Instagram tanıtımları.</p>
-</div>
+<script>
+function showLove(){
+    document.getElementById("message").innerHTML =
+    "Seni çok seviyorum ❤️ Sonsuza kadar yanımda ol.";
+}
 
-<div class="card">
-<h3>👍 Facebook Reklam</h3>
-<p>Facebook reklam optimizasyonu ve büyüme.</p>
-</div>
+function createHeart(){
+    const heart = document.createElement("span");
+    heart.innerHTML = "❤";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = Math.random()*30 + 15 + "px";
+    heart.style.animationDuration = Math.random()*3 + 2 + "s";
+    document.body.appendChild(heart);
 
-<div class="card">
-<h3>🖼 Banner Reklam</h3>
-<p>Profesyonel banner tasarımı ve yayınlama.</p>
-</div>
+    setTimeout(()=>{
+        heart.remove();
+    },5000);
+}
 
-<div class="card">
-<h3>📱 Uygulama Reklam</h3>
-<p>Mobil uygulama tanıtım ve kullanıcı kazanımı.</p>
-</div>
-
-<div class="card">
-<h3>🤖 Bot Reklam</h3>
-<p>Bot tanıtımları ve erişim artırma hizmetleri.</p>
-</div>
-
-<div class="card">
-<h3>📄 Sayfa Reklam</h3>
-<p>Sosyal medya sayfaları için reklam çalışmaları.</p>
-</div>
-
-<div class="card">
-<h3>👥 Grup Reklam</h3>
-<p>Topluluk ve grup tanıtım hizmetleri.</p>
-</div>
-
-<div class="card">
-<h3>📣 Kanal Reklam</h3>
-<p>Kanal büyütme ve reklam kampanyaları.</p>
-</div>
-
-<div class="card">
-<h3>🚀 Üye Çekimi</h3>
-<p>Organik erişim ve topluluk büyüme desteği.</p>
-</div>
-
-<div class="card">
-<h3>⭐ Diğer Hizmetler</h3>
-<p>Tüm dijital reklam ve tanıtım çözümleri.</p>
-</div>
-
-</div>
-</section>
-
-<section class="banner">
-<h2>Reklam Gücünüzü Zirveye Taşıyın</h2>
-<p>Meta • Instagram • Facebook • Banner • Uygulama • Kanal • Grup</p>
-</section>
-
-<footer>
-© 2026 PERISU MARKETING - Tüm Hakları Saklıdır.
-</footer>
+setInterval(createHeart,300);
+</script>
 
 </body>
 </html>
