@@ -2,137 +2,103 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bonus Merkezi</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Premium Bonus Portal</title>
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 body{
-height:100vh;
+font-family:Arial,sans-serif;
+background:#0d0d0d;
+color:#fff;
+}
+header{
+background:#111;
+padding:15px;
 display:flex;
-justify-content:center;
+justify-content:space-between;
 align-items:center;
-background:#000;
-overflow:hidden;
+border-bottom:1px solid #333;
 }
-body::before{
-content:'';
-position:absolute;
-width:700px;
-height:700px;
-background:radial-gradient(circle,gold,transparent 70%);
-top:-250px;
-right:-250px;
-animation:rotate 12s linear infinite;
-opacity:.3;
-}
-body::after{
-content:'';
-position:absolute;
-width:600px;
-height:600px;
-background:radial-gradient(circle,silver,transparent 70%);
-bottom:-250px;
-left:-250px;
-animation:rotate 10s linear infinite reverse;
-opacity:.25;
-}
-@keyframes rotate{
-100%{transform:rotate(360deg);}
-}
-.card{
-position:relative;
-width:95%;
-max-width:430px;
-padding:30px;
-border-radius:30px;
-backdrop-filter:blur(18px);
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.15);
-box-shadow:0 0 40px rgba(255,215,0,.25);
-text-align:center;
-z-index:2;
-}
-.profile{
-width:110px;
-height:110px;
-margin:auto;
-border-radius:50%;
-border:4px solid gold;
-background:url('https://images.unsplash.com/photo-1500648767791-00dcc994a43f?w=500') center/cover;
-box-shadow:0 0 25px gold;
-}
-.title{
-margin-top:15px;
-font-size:32px;
-font-weight:700;
-background:linear-gradient(90deg,gold,silver,gold);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-animation:flash 1.2s infinite;
-}
-@keyframes flash{
-50%{opacity:.5;}
-}
-.text{
-color:#ddd;
-font-size:14px;
-margin:10px 0 25px;
+.logo{
+font-size:24px;
+font-weight:bold;
+color:#f5c542;
 }
 .btn{
-display:block;
-text-decoration:none;
-color:white;
-font-weight:600;
-padding:16px;
-margin:12px 0;
-border-radius:18px;
-background:linear-gradient(90deg,#b8860b,#e5e4e2,#b8860b);
-box-shadow:0 0 15px rgba(255,215,0,.5);
-transition:.4s;
+padding:10px 20px;
+border:none;
+border-radius:8px;
+background:#f5c542;
+color:#000;
+font-weight:bold;
+cursor:pointer;
 }
-.btn:hover{
-transform:translateY(-4px) scale(1.03);
-box-shadow:0 0 30px gold;
+.hero{
+padding:60px 20px;
+text-align:center;
+background:linear-gradient(135deg,#111,#222);
 }
-.badge{
-margin-top:20px;
-display:inline-block;
-padding:8px 18px;
-border-radius:50px;
-background:rgba(255,215,0,.15);
-color:gold;
-font-size:13px;
+.hero h1{
+font-size:36px;
+color:#f5c542;
 }
-.footer{
-margin-top:20px;
-font-size:12px;
-color:#aaa;
+.hero p{
+margin-top:10px;
+color:#ccc;
+}
+.cards{
+padding:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+.card{
+background:#171717;
+border:1px solid #333;
+padding:20px;
+border-radius:15px;
+transition:.3s;
+}
+.card:hover{
+transform:translateY(-5px);
+border-color:#f5c542;
+}
+.card h3{
+color:#f5c542;
+margin-bottom:10px;
+}
+footer{
+padding:20px;
+text-align:center;
+color:#888;
 }
 </style>
 </head>
 <body>
+<header>
+<div class="logo">BONUS PORTAL</div>
+<button class="btn">Kayıt Ol</button>
+</header>
+<section class="hero">
+<h1>Premium Kampanyalar</h1>
+<p>En güncel fırsatlar ve özel promosyonlar</p>
+</section>
+<section class="cards">
 <div class="card">
-<div class="profile"></div>
-<h1 class="title">BONUS MERKEZİ</h1>
-<p class="text">
-En Güncel Bonuslar ve Kampanyalar
-</p>
-<a href="#" class="btn">💰 1000₺ Deneme Bonusu</a>
-<a href="#" class="btn">🔥 3000₺ Hoşgeldin Fırsatı</a>
-<a href="#" class="btn">⚡ Çevrimsiz Kampanya</a>
-<a href="#" class="btn">🎯 Günlük Özel Teklifler</a>
-<a href="#" class="btn">🚀 VIP Bonuslar</a>
-<a href="#" class="btn">📢 Telegram Kanalı</a>
-<div class="badge">⭐ PREMIUM ÜYELİK</div>
-<div class="footer">
-© 2026 Bonus Merkezi
+<h3>Hoş Geldin Paketi</h3>
+<p>Yeni üyelere özel kampanya.</p>
 </div>
+<div class="card">
+<h3>VIP Fırsatlar</h3>
+<p>Özel avantajlar ve teklifler.</p>
 </div>
+<div class="card">
+<h3>Günlük Bonuslar</h3>
+<p>Her gün yenilenen promosyonlar.</p>
+</div>
+</section>
+<footer>
+© 2026 Premium Bonus Portal
+</footer>
 </body>
 </html>
