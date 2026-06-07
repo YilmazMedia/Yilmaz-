@@ -5,176 +5,232 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RichBonus</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{
-background:#050505;
-color:#fff;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
-.topbar{
-background:#111;
-border:1px solid #caa54a;
-padding:15px 25px;
-color:#ffd700;
-font-weight:bold;
+body{
+background:#030303;
+color:#fff;
+overflow-x:hidden;
 }
 .hero{
-display:grid;
-grid-template-columns:1fr 1fr;
-align-items:center;
-padding:60px;
+height:100vh;
 background:
-radial-gradient(circle at center,#2b1d00,#050505);
+linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.85)),
+url("bmw.jpg");
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+position:relative;
+}
+.hero::before{
+content:'';
+position:absolute;
+left:0;
+top:0;
+width:50%;
+height:100%;
+background:radial-gradient(circle,#005eff33,transparent 70%);
+}
+.hero::after{
+content:'';
+position:absolute;
+right:0;
+top:0;
+width:50%;
+height:100%;
+background:radial-gradient(circle,#ff003333,transparent 70%);
+}
+.hero-content{
+position:relative;
+z-index:5;
 }
 .logo{
-font-size:90px;
+font-size:120px;
 font-weight:900;
-background:linear-gradient(#fff2a8,#ffd700,#b8860b);
+background:linear-gradient(90deg,#ff2d55,#00a2ff);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
+text-shadow:
+0 0 20px #ff2d55,
+0 0 40px #00a2ff;
 }
 .subtitle{
 font-size:24px;
-margin:15px 0;
+margin-top:15px;
+color:#ddd;
 }
-.telegram-btn{
+.telegram{
 display:inline-block;
-margin-top:20px;
-padding:16px 30px;
-background:linear-gradient(90deg,#ffd700,#caa54a);
-color:#000;
-font-weight:bold;
+margin-top:25px;
+padding:18px 40px;
+background:linear-gradient(90deg,#ff2d55,#00a2ff);
+border-radius:15px;
 text-decoration:none;
-border-radius:12px;
-}
-.car{
-width:100%;
-border-radius:20px;
-box-shadow:0 0 40px rgba(255,215,0,.15);
+font-weight:bold;
+color:white;
 }
 .news{
 background:#111;
-border-top:1px solid #caa54a;
-border-bottom:1px solid #caa54a;
-padding:12px;
+padding:15px;
 overflow:hidden;
 white-space:nowrap;
+border-top:2px solid #ff2d55;
+border-bottom:2px solid #00a2ff;
 }
 .news span{
 display:inline-block;
 padding-left:100%;
-animation:slide 20s linear infinite;
+animation:kaydir 18s linear infinite;
 }
-@keyframes slide{
-100%{transform:translateX(-200%);}
+@keyframes kaydir{
+100%{
+transform:translateX(-200%);
+}
+}
+.title{
+text-align:center;
+font-size:50px;
+padding:50px 0;
+background:linear-gradient(90deg,#ff2d55,#00a2ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 .grid{
-max-width:1500px;
+max-width:1600px;
 margin:auto;
-padding:30px;
+padding:20px;
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:20px;
+gap:25px;
 }
 .card{
-background:#0f0f0f;
-border:1px solid #caa54a;
-border-radius:18px;
-padding:25px;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,.08);
+border-radius:20px;
+padding:30px;
 text-align:center;
+transition:.3s;
+}
+.card:hover{
+transform:translateY(-10px);
+box-shadow:
+0 0 20px #ff2d55,
+0 0 35px #00a2ff;
 }
 .card h3{
-color:#ffd700;
 font-size:30px;
+color:#00a2ff;
 }
 .amount{
-font-size:60px;
+font-size:55px;
 font-weight:900;
 margin:20px 0;
-color:#ffd700;
+color:#ff2d55;
 }
 .btn{
 display:block;
-background:linear-gradient(90deg,#ffd700,#caa54a);
-padding:14px;
-border-radius:10px;
-text-decoration:none;
-color:#000;
+padding:15px;
+border-radius:12px;
+background:linear-gradient(90deg,#ff2d55,#00a2ff);
+color:white;
 font-weight:bold;
+text-decoration:none;
 }
-.telegram-section{
-margin:40px;
-background:#0d2035;
-padding:25px;
-border-radius:20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-.footer{
-background:#111;
-padding:40px;
+.social{
+margin-top:60px;
+background:#0a0a0a;
+padding:50px;
 display:grid;
 grid-template-columns:repeat(3,1fr);
 gap:30px;
 }
-.footer h3{
-color:#ffd700;
+.social-box{
+text-align:center;
+}
+.social-box h3{
+color:#00a2ff;
 margin-bottom:15px;
 }
+.footer{
+text-align:center;
+padding:30px;
+color:#888;
+background:#050505;
+}
 @media(max-width:1000px){
-.hero{grid-template-columns:1fr}
-.grid{grid-template-columns:1fr}
-.footer{grid-template-columns:1fr}
+.logo{
+font-size:70px;
+}
+.grid{
+grid-template-columns:1fr;
+}
+.social{
+grid-template-columns:1fr;
+}
 }
 </style>
 </head>
 <body>
-<div class="topbar">
-🎁 HOŞ GELDİNİZ! En güncel bonus fırsatları burada.
-</div>
 <section class="hero">
-<div>
+<div class="hero-content">
 <div class="logo">RICHBONUS</div>
 <div class="subtitle">
-EN GÜNCEL DENEME BONUSLARI
+Premium Bonus Merkezi
 </div>
-<p>
-3 YAN 3 ALT BONUS GÖRÜNÜMÜ
-</p>
 
-TELEGRAM KANALIMIZ
+Telegram Kanalı
 </div>
-<img src="bmw.jpg" class="car">
 </section>
 <div class="news">
 <span>
-Betplay 1500₺ deneme bonusu eklendi • Goley90 güncellendi • Telegram kanalımızı takip edin
+🔥 BETPARİ 1000₺ • 🔥 BAHİSBEY 500₺ • 🔥 GOLEY90 1000₺ • 🔥 BETPLAY 1500₺ • Güncel Bonuslar
 </span>
 </div>
+<h2 class="title">
+GÜNCEL BONUSLAR
+</h2>
 <div class="grid">
 <div class="card">
 <h3>BETPARİ</h3>
-<div class="amount">1000₺</div>
+<div class="amount">₺1000</div>
 <a href="#" class="btn">İNCELE</a>
 </div>
 <div class="card">
 <h3>BAHİSBEY</h3>
-<div class="amount">500₺</div>
+<div class="amount">₺500</div>
 <a href="#" class="btn">İNCELE</a>
 </div>
 <div class="card">
 <h3>GOLEY90</h3>
-<div class="amount">1000₺</div>
+<div class="amount">₺1000</div>
 <a href="#" class="btn">İNCELE</a>
 </div>
 <div class="card">
 <h3>BETPLAY</h3>
-<div class="amount">1500₺</div>
+<div class="amount">₺1500</div>
 <a href="#" class="btn">İNCELE</a>
 </div>
 <div class="card">
-<h3>GÜNCEL BONUSLAR</h3>
-<div class="amount">🎁</div>
+<h3>VIP BONUS</h3>
+<div class="amount">👑</div>
+<a href="#" class="btn">İNCELE</a>
+</div>
+<div class="card">
+<h3>CANLI CASINO</h3>
+<div class="amount">🎲</div>
+<a href="#" class="btn">İNCELE</a>
+</div>
+<div class="card">
+<h3>SPOR</h3>
+<div class="amount">⚽</div>
 <a href="#" class="btn">İNCELE</a>
 </div>
 <div class="card">
@@ -183,45 +239,27 @@ Betplay 1500₺ deneme bonusu eklendi • Goley90 güncellendi • Telegram kana
 <a href="#" class="btn">İNCELE</a>
 </div>
 <div class="card">
-<h3>GÜVENLİ SİSTEM</h3>
-<div class="amount">🛡️</div>
-<a href="#" class="btn">İNCELE</a>
-</div>
-<div class="card">
-<h3>EN YÜKSEK ORANLAR</h3>
-<div class="amount">🏆</div>
-<a href="#" class="btn">İNCELE</a>
-</div>
-<div class="card">
 <h3>7/24 DESTEK</h3>
 <div class="amount">🎧</div>
 <a href="#" class="btn">İNCELE</a>
 </div>
 </div>
-<div class="telegram-section">
-<h2>Telegram Kanalımıza Katıl</h2>
-<a href="https://t.me/Richofficall"
-class="telegram-btn">
-KATIL
-</a>
+<section class="social">
+<div class="social-box">
+<h3>Telegram</h3>
+<p>@Richofficall</p>
 </div>
-<div class="footer">
-<div>
-<h3>Sosyal Medya</h3>
-Telegram<br>
-Instagram<br>
-YouTube
+<div class="social-box">
+<h3>Instagram</h3>
+<p>Yakında</p>
 </div>
-<div>
-<h3>Bilgilendirme</h3>
-Sık Sorulan Sorular<br>
-Bonus Kuralları<br>
-Kullanım Şartları
-</div>
-<div>
+<div class="social-box">
 <h3>İletişim</h3>
-Telegram: @Richofficall
+<p>RichBonus</p>
 </div>
+</section>
+<div class="footer">
+© 2026 RichBonus
 </div>
 </body>
 </html>
