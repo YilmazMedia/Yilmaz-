@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Seni Çok Seviyorum BÜŞRAM ❤️</title>
+<title>Seni Çok Seviyorum Büşram ❤️</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
@@ -11,61 +11,64 @@ height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-background:linear-gradient(135deg,#ff4d6d,#ff8fab,#ffc2d1);
 overflow:hidden;
-font-family:Arial,sans-serif;
+font-family:'Arial',sans-serif;
+background:linear-gradient(135deg,#ff4d6d,#ff758f,#ffc2d1);
 }
-.container{
+.card{
 text-align:center;
-color:#fff;
 padding:30px;
+color:#fff;
+z-index:2;
 }
 h1{
 font-size:3rem;
-margin-bottom:15px;
-animation:beat 1s infinite;
+margin-bottom:20px;
+animation:kalp 1.2s infinite;
 }
 p{
-font-size:1.3rem;
-max-width:600px;
+font-size:1.4rem;
+line-height:1.8;
+max-width:700px;
 }
 .heart{
 position:absolute;
+top:-50px;
 color:#fff;
-font-size:20px;
-animation:fall linear infinite;
+animation:dus linear infinite;
 }
-@keyframes beat{
+@keyframes kalp{
 0%,100%{transform:scale(1)}
 50%{transform:scale(1.15)}
 }
-@keyframes fall{
-0%{transform:translateY(-100px)}
-100%{transform:translateY(110vh)}
+@keyframes dus{
+0%{transform:translateY(-50px) rotate(0deg)}
+100%{transform:translateY(110vh) rotate(360deg)}
 }
 </style>
 </head>
 <body>
 
-<div class="container">
-<h1>❤️ Seni Çok Seviyorum ❤️</h1>
+<div class="card">
+<h1>❤️ Seni Çok Seviyorum Büşram ❤️</h1>
 <p>
-Hayatımın en güzel parçası sensin.
-Her günüm seninle daha anlamlı, daha güzel.
-İyi ki varsın İyiki Benimsin. 💖
+Sen benim en güzel hikâyem, en değerli mutluluğumsun.<br>
+Her gülüşünde yeniden aşık oluyorum sana.<br>
+İyi ki varsın, iyi ki hayatımdasın.<br><br>
+💖 Sonsuza Kadar Seni Çok Seviyorum Büşram 💖
 </p>
 </div>
 
 <script>
-for(let i=0;i<50;i++){
-let heart=document.createElement("div");
-heart.className="heart";
-heart.innerHTML="❤";
-heart.style.left=Math.random()*100+"vw";
-heart.style.animationDuration=(Math.random()*5+5)+"s";
-heart.style.opacity=Math.random();
-heart.style.fontSize=(Math.random()*20+15)+"px";
-document.body.appendChild(heart);
+for(let i=0;i<100;i++){
+let kalp=document.createElement("div");
+kalp.className="heart";
+kalp.innerHTML="❤";
+kalp.style.left=Math.random()*100+"vw";
+kalp.style.fontSize=(Math.random()*25+15)+"px";
+kalp.style.opacity=Math.random();
+kalp.style.animationDuration=(Math.random()*5+5)+"s";
+document.body.appendChild(kalp);
 }
 </script>
 
