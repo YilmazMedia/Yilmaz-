@@ -2,103 +2,248 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Premium Bonus Portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Betplay</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
 body{
-font-family:Arial,sans-serif;
-background:#0d0d0d;
+background:#060b14;
 color:#fff;
+overflow-x:hidden;
 }
-header{
-background:#111;
-padding:15px;
+body:before{
+content:"";
+position:fixed;
+inset:0;
+background:radial-gradient(circle at top right,#00aaff33,transparent 40%);
+pointer-events:none;
+}
+nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
-border-bottom:1px solid #333;
+padding:20px 8%;
+background:#0b1220;
+border-bottom:1px solid #17304f;
+position:sticky;
+top:0;
+z-index:99;
 }
 .logo{
-font-size:24px;
-font-weight:bold;
-color:#f5c542;
+display:flex;
+align-items:center;
+gap:12px;
+font-size:28px;
+font-weight:700;
 }
-.btn{
-padding:10px 20px;
+.bp{
+width:48px;
+height:48px;
+border-radius:12px;
+background:linear-gradient(135deg,#00aaff,#005eff);
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:700;
+}
+.navbtn{
+padding:10px 18px;
 border:none;
-border-radius:8px;
-background:#f5c542;
-color:#000;
-font-weight:bold;
+border-radius:10px;
 cursor:pointer;
+font-weight:600;
 }
+.login{background:#15263d;color:#fff}
+.register{background:#00aaff;color:#fff}
 .hero{
-padding:60px 20px;
+padding:90px 8%;
 text-align:center;
-background:linear-gradient(135deg,#111,#222);
 }
 .hero h1{
-font-size:36px;
-color:#f5c542;
+font-size:60px;
+margin-bottom:10px;
+}
+.hero span{
+color:#00aaff;
 }
 .hero p{
-margin-top:10px;
-color:#ccc;
+color:#b8c7d9;
+max-width:700px;
+margin:auto;
 }
-.cards{
-padding:20px;
+.heroBtns{
+margin-top:30px;
+}
+.heroBtns button{
+padding:14px 28px;
+margin:6px;
+border:none;
+border-radius:12px;
+font-size:16px;
+cursor:pointer;
+}
+.primary{
+background:#00aaff;
+color:#fff;
+}
+.secondary{
+background:#15263d;
+color:#fff;
+}
+.grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:15px;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+padding:40px 8%;
 }
 .card{
-background:#171717;
-border:1px solid #333;
-padding:20px;
-border-radius:15px;
+background:#0d1727;
+border:1px solid #17304f;
+padding:25px;
+border-radius:18px;
 transition:.3s;
 }
 .card:hover{
 transform:translateY(-5px);
-border-color:#f5c542;
+border-color:#00aaff;
+box-shadow:0 0 25px rgba(0,170,255,.2);
 }
 .card h3{
-color:#f5c542;
 margin-bottom:10px;
+color:#00aaff;
+}
+.banner{
+margin:30px 8%;
+padding:35px;
+border-radius:20px;
+background:linear-gradient(135deg,#001a33,#003c75);
+text-align:center;
+}
+.banner h2{
+font-size:36px;
 }
 footer{
-padding:20px;
+padding:30px;
 text-align:center;
-color:#888;
+color:#9fb3c8;
+}
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.85);
+justify-content:center;
+align-items:center;
+z-index:999;
+}
+.box{
+background:#0d1727;
+width:340px;
+padding:25px;
+border-radius:18px;
+border:1px solid #17304f;
+}
+.box h2{
+margin-bottom:15px;
+}
+.box input{
+width:100%;
+padding:12px;
+margin:8px 0;
+border:none;
+border-radius:10px;
+background:#15263d;
+color:#fff;
+}
+.box button{
+width:100%;
+padding:12px;
+border:none;
+border-radius:10px;
+background:#00aaff;
+color:white;
+font-weight:600;
+cursor:pointer;
+margin-top:10px;
 }
 </style>
 </head>
 <body>
-<header>
-<div class="logo">BONUS PORTAL</div>
-<button class="btn">Kayıt Ol</button>
-</header>
+<nav>
+<div class="logo">
+<div class="bp">BP</div>
+Betplay
+</div>
+<div>
+<button class="navbtn login" onclick="openLogin()">Giriş Yap</button>
+<button class="navbtn register" onclick="openRegister()">Kayıt Ol</button>
+</div>
+</nav>
 <section class="hero">
-<h1>Premium Kampanyalar</h1>
-<p>En güncel fırsatlar ve özel promosyonlar</p>
+<h1>Yeni Nesil <span>Betplay</span></h1>
+<p>Modern siyah-mavi temalı eğlence portalı tasarımı. Mobil ve masaüstü uyumlu premium görünüm.</p>
+<div class="heroBtns">
+<button class="primary" onclick="openRegister()">Hemen Başla</button>
+<button class="secondary">Kampanyalar</button>
+</div>
 </section>
-<section class="cards">
+<div class="banner">
+<h2>Premium Üyelik Avantajları</h2>
+<p>Daha hızlı erişim, özel içerikler ve ayrıcalıklı deneyim.</p>
+</div>
+<section class="grid">
 <div class="card">
-<h3>Hoş Geldin Paketi</h3>
-<p>Yeni üyelere özel kampanya.</p>
+<h3>🎮 Oyun Merkezi</h3>
+<p>Modern arayüz ve hızlı erişim.</p>
 </div>
 <div class="card">
-<h3>VIP Fırsatlar</h3>
-<p>Özel avantajlar ve teklifler.</p>
+<h3>⭐ VIP Kulüp</h3>
+<p>Özel üyelik avantajları.</p>
 </div>
 <div class="card">
-<h3>Günlük Bonuslar</h3>
-<p>Her gün yenilenen promosyonlar.</p>
+<h3>🎁 Kampanyalar</h3>
+<p>Güncel promosyon duyuruları.</p>
+</div>
+<div class="card">
+<h3>💬 Canlı Destek</h3>
+<p>7/24 destek alanı.</p>
 </div>
 </section>
 <footer>
-© 2026 Premium Bonus Portal
+© 2026 Betplay - Demo Tasarım
 </footer>
+<div class="modal" id="loginModal">
+<div class="box">
+<h2>Giriş Yap</h2>
+<input placeholder="Kullanıcı Adı">
+<input type="password" placeholder="Şifre">
+<button onclick="closeAll()">Giriş</button>
+</div>
+</div>
+<div class="modal" id="registerModal">
+<div class="box">
+<h2>Kayıt Ol</h2>
+<input placeholder="Kullanıcı Adı">
+<input placeholder="E-Posta">
+<input type="password" placeholder="Şifre">
+<button onclick="closeAll()">Kaydol</button>
+</div>
+</div>
+<script>
+function openLogin(){
+document.getElementById("loginModal").style.display="flex";
+}
+function openRegister(){
+document.getElementById("registerModal").style.display="flex";
+}
+function closeAll(){
+document.getElementById("loginModal").style.display="none";
+document.getElementById("registerModal").style.display="none";
+}
+window.onclick=function(e){
+if(e.target.classList.contains("modal")) closeAll();
+}
+</script>
 </body>
 </html>
