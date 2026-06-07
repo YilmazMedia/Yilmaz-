@@ -1,156 +1,143 @@
 <!DOCTYPE html>
-
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RichBonus</title>
-
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
 body{
-background:#080808;
-color:#fff;
+background:
+linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.9)),
+url('https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1600');
+background-size:cover;
+background-attachment:fixed;
+color:white;
 }
-
 header{
-background:#111;
 padding:25px;
 text-align:center;
-border-bottom:3px solid #00ff88;
+backdrop-filter:blur(10px);
+background:rgba(0,0,0,.5);
+border-bottom:2px solid #00ff88;
 }
-
 .logo{
-font-size:42px;
+font-size:48px;
 font-weight:900;
 color:#00ff88;
+text-shadow:0 0 20px #00ff88;
 }
-
 .hero{
-padding:50px 20px;
+padding:60px 20px;
 text-align:center;
 }
-
 .hero h1{
-font-size:42px;
-margin-bottom:10px;
+font-size:44px;
+margin-bottom:15px;
 }
-
 .hero p{
-color:#aaa;
+color:#ccc;
+font-size:18px;
 }
-
 .cards{
 max-width:1200px;
 margin:auto;
 padding:20px;
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 gap:25px;
 }
-
 .card{
-background:#151515;
-border-radius:20px;
+background:rgba(20,20,20,.85);
+border:1px solid rgba(0,255,136,.25);
+border-radius:25px;
 padding:25px;
 text-align:center;
-box-shadow:0 0 20px rgba(0,255,136,.15);
+backdrop-filter:blur(12px);
+box-shadow:0 0 25px rgba(0,255,136,.15);
+transition:.3s;
 }
-
-.icon{
-font-size:60px;
-margin-bottom:15px;
+.card:hover{
+transform:translateY(-6px);
 }
-
 .site{
 font-size:28px;
 font-weight:bold;
 color:#00ff88;
 }
-
 .bonus{
-font-size:40px;
-font-weight:bold;
+font-size:42px;
+font-weight:900;
 margin:20px 0;
 }
-
+.info{
+color:#ccc;
+margin-bottom:20px;
+}
 .btn{
 display:block;
 padding:15px;
 background:#00ff88;
-color:#000;
-text-decoration:none;
-border-radius:12px;
+color:black;
 font-weight:bold;
-font-size:18px;
+text-decoration:none;
+border-radius:15px;
 }
-
 .telegram{
-max-width:1200px;
-margin:30px auto;
+max-width:800px;
+margin:40px auto;
 padding:20px;
 }
-
 .telegram a{
 display:block;
 background:#229ED9;
 padding:18px;
+border-radius:18px;
 text-align:center;
-color:white;
-text-decoration:none;
-border-radius:15px;
-font-size:20px;
+font-size:22px;
 font-weight:bold;
+text-decoration:none;
+color:white;
 }
-
 footer{
-padding:25px;
 text-align:center;
-color:#888;
+padding:30px;
+color:#999;
 }
 </style>
-
 </head>
-
 <body>
-
 <header>
 <div class="logo">RICHBONUS</div>
 </header>
 <section class="hero">
 <h1>Güncel Deneme Bonusları</h1>
-<p>En güncel fırsatları tek sayfada inceleyin.</p>
+<p>En güncel bonus fırsatlarını keşfedin.</p>
 </section>
 <div class="cards">
 <div class="card">
-<div class="icon">💎</div>
-<div class="site">Betpari</div>
-<div class="bonus">₺1000</div>
-<a href="#" class="btn">İncele</a>
+<div class="site">BETPARİ</div>
+<div class="bonus">₺1.000</div>
+<div class="info">Deneme Bonusu</div>
+<a href="#" class="btn">HEMEN İNCELE</a>
 </div>
 <div class="card">
-<div class="icon">🔥</div>
-<div class="site">Bahisbey</div>
+<div class="site">BAHİSBEY</div>
 <div class="bonus">₺500</div>
-<a href="#" class="btn">İncele</a>
+<div class="info">Deneme Bonusu</div>
+<a href="#" class="btn">HEMEN İNCELE</a>
 </div>
 <div class="card">
-<div class="icon">⚡</div>
-<div class="site">Goley90</div>
-<div class="bonus">₺1000</div>
-<a href="#" class="btn">İncele</a>
+<div class="site">GOLEY90</div>
+<div class="bonus">₺1.000</div>
+<div class="info">Deneme Bonusu</div>
+<a href="#" class="btn">HEMEN İNCELE</a>
 </div>
 <div class="card">
-<div class="icon">👑</div>
-<div class="site">Betplay</div>
-<div class="bonus">₺1500</div>
-<a href="#" class="btn">İncele</a>
+<div class="site">BETPLAY</div>
+<div class="bonus">₺1.500</div>
+<div class="info">Deneme Bonusu</div>
+<a href="#" class="btn">HEMEN İNCELE</a>
 </div>
 </div>
 <div class="telegram">
@@ -163,4 +150,3 @@ color:#888;
 </footer>
 </body>
 </html>
-
