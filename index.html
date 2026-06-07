@@ -14,7 +14,7 @@
 }
 
 body{
-    background:linear-gradient(135deg,#ff4b6e,#ff7eb3,#7b61ff);
+    background:linear-gradient(135deg,#ff4d6d,#ff85a2,#c77dff);
     min-height:100vh;
     display:flex;
     justify-content:center;
@@ -24,75 +24,79 @@ body{
 
 .container{
     width:90%;
-    max-width:800px;
+    max-width:900px;
+    padding:50px;
+    border-radius:30px;
     background:rgba(255,255,255,0.15);
     backdrop-filter:blur(15px);
-    border:1px solid rgba(255,255,255,0.2);
-    border-radius:30px;
-    padding:50px;
     text-align:center;
     color:white;
-    box-shadow:0 20px 50px rgba(0,0,0,0.3);
+    box-shadow:0 0 40px rgba(0,0,0,.3);
+}
+
+.heart{
+    font-size:90px;
+    animation:beat 1s infinite;
+}
+
+@keyframes beat{
+    50%{
+        transform:scale(1.2);
+    }
 }
 
 h1{
     font-size:55px;
-    margin-bottom:20px;
-    text-shadow:0 0 15px rgba(255,255,255,0.5);
+    margin:20px 0;
 }
 
 p{
     font-size:22px;
     line-height:1.8;
+    margin-top:15px;
 }
 
-.heart{
-    font-size:100px;
-    animation:beat 1s infinite;
-    margin-bottom:20px;
-}
-
-@keyframes beat{
-    0%{transform:scale(1);}
-    50%{transform:scale(1.2);}
-    100%{transform:scale(1);}
-}
-
-.btn{
+button{
     margin-top:30px;
     padding:15px 40px;
     border:none;
     border-radius:50px;
-    background:white;
-    color:#ff4b6e;
     font-size:20px;
     cursor:pointer;
-    transition:.3s;
-}
-
-.btn:hover{
-    transform:scale(1.1);
-}
-
-#message{
-    margin-top:25px;
-    font-size:24px;
+    background:white;
+    color:#ff4d6d;
     font-weight:bold;
-    color:#fff;
 }
 
-span{
+button:hover{
+    transform:scale(1.05);
+}
+
+#loveMessage{
+    margin-top:25px;
+    font-size:26px;
+    font-weight:bold;
+}
+
+.note{
+    margin-top:35px;
+    font-size:24px;
+    font-style:italic;
+}
+
+.falling{
     position:absolute;
-    color:#fff;
-    animation:fall linear infinite;
+    top:-20px;
+    color:white;
+    animation:fall linear forwards;
 }
 
 @keyframes fall{
-    0%{
-        transform:translateY(-100px);
+    from{
+        transform:translateY(-50px);
         opacity:1;
     }
-    100%{
+    to{
         transform:translateY(110vh);
         opacity:0;
     }
@@ -103,43 +107,63 @@ span{
 <body>
 
 <div class="container">
-    <div class="heart">❤️</div>
 
-    <h1>Seni Seviyorum</h1>
+<div class="heart">❤️</div>
 
-    <p>
-        İyi ki varsın güzellim...<br>
-        Hayatımın en güzel tesadüfü sensin.<br>
-        Her günüm seninle daha anlamlı. ❤️
-    </p>
+<h1>Seni Seviyorum</h1>
 
-    <button class="btn" onclick="showLove()">
-        Mesajımı Oku 💌
-    </button>
+<p>
+Hayatımın en güzel hediyesi sensin.
+Gülüşün günümü aydınlatan güneş,
+sesin kalbime huzur veren en güzel melodi.
+</p>
 
-    <div id="message"></div>
+<p>
+İyi ki hayatımdasın...
+İyi ki yollarımız kesişmiş...
+Her geçen gün seni daha çok seviyorum.
+</p>
+
+<p>
+Seninle geçen her an benim için çok değerli.
+Kalbimin en güzel yerinde daima sen varsın. ❤️
+</p>
+
+<button onclick="showLove()">
+Mesajımı Aç 💌
+</button>
+
+<div id="loveMessage"></div>
+
+<div class="note">
+❤️ Sevgiyle Hazırlayan ❤️
+<br><br>
+<strong>Mustafa Yılmaz</strong>
+</div>
+
 </div>
 
 <script>
 function showLove(){
-    document.getElementById("message").innerHTML =
-    "Seni çok seviyorum ❤️ Sonsuza kadar yanımda ol.";
+document.getElementById("loveMessage").innerHTML=
+"❤️ Seni bugün, yarın ve daima seveceğim. İyi ki varsın sevgilim. ❤️";
 }
 
 function createHeart(){
-    const heart = document.createElement("span");
-    heart.innerHTML = "❤";
-    heart.style.left = Math.random()*100 + "vw";
-    heart.style.fontSize = Math.random()*30 + 15 + "px";
-    heart.style.animationDuration = Math.random()*3 + 2 + "s";
-    document.body.appendChild(heart);
+const heart=document.createElement("div");
+heart.classList.add("falling");
+heart.innerHTML="❤";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*25+15)+"px";
+heart.style.animationDuration=(Math.random()*3+3)+"s";
+document.body.appendChild(heart);
 
-    setTimeout(()=>{
-        heart.remove();
-    },5000);
+setTimeout(()=>{
+heart.remove();
+},6000);
 }
 
-setInterval(createHeart,300);
+setInterval(createHeart,250);
 </script>
 
 </body>
