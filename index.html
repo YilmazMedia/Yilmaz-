@@ -3,39 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eğitici Zar Oyunu</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; background: #f4f4f4; padding: 50px; }
-        .box { background: white; padding: 30px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        button { background: #28a745; color: white; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; border-radius: 5px; }
-        button:hover { background: #218838; }
-        .result { font-size: 24px; margin-top: 20px; font-weight: bold; }
-    </style>
+    <title>Sistem Veri Analiz Paneli</title>
+    <!-- Tailwind CSS (Görsel tasarım için) -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Chart.js (Grafik çizimi için) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body>
+<body class="bg-gray-900 text-gray-100 font-sans">
 
-<div class="box">
-    <h2>Basit Olasılık Oyunu</h2>
-    <p>Butona basarak 1 ile 6 arasında rastgele bir sayı üretin.</p>
-    <button onclick="zarAt()">Zar At</button>
-    <div class="result" id="sonuc">-</div>
-</div>
+    <div class="flex h-screen overflow-hidden">
+        
+        <!-- Yan Menü (Sidebar) -->
+        <div class="w-64 bg-gray-800 p-5 hidden md:block">
+            <h1 class="text-xl font-bold text-indigo-400 mb-8 flex items-center gap-2">
+                📊 AnalizMerkezi
+            </h1>
+            <nav class="space-y-4">
+                <a href="#" class="block p-3 bg-indigo-600 rounded text-white font-medium">Genel Bakış</a>
+                <a href="#" class="block p-3 text-gray-400 hover:bg-gray-700 rounded transition">RNG Logları</a>
+                <a href="#" class="block p-3 text-gray-400 hover:bg-gray-700 rounded transition">Kullanıcı Analitiği</a>
+                <a href="#" class="block p-3 text-gray-400 hover:bg-gray-700 rounded transition">Sistem Sağlığı</a>
+            </nav>
+        </div>
 
-<script>
-function zarAt() {
-    // Math.random() 0 ile 1 arasında rastgele bir ondalık sayı üretir.
-    // Bunu 6 ile çarpıp yukarı yuvarlayarak 1-6 arası tam sayı elde ederiz.
-    let rastgeleSayi = Math.floor(Math.random() * 6) + 1;
-    
-    let sonucMetni = "Gelen Zar: " + rastgeleSayi;
-    
-    if(rastgeleSayi === 6) {
-        sonucMetni += " 🎉 (Tebrikler, en yüksek sayı!)";
-    }
-    
-    document.getElementById("sonuc").innerText = sonucMetni;
-}
-</script>
+        <!-- Ana İçerik Alanı -->
+        <div class="flex-1 overflow-y-auto p-8">
+            
+            <!-- Üst Bar -->
+            <header class="flex justify-between items-center mb-8 pb-4 border-b border-gray-800">
+                <div>
+                    <h2 class="text-2xl font-bold">Sistem Performans Paneli</h2>
+                    <p class="text-gray-400 text-sm">Simüle edilmiş anlık sistem verileri ve olasılık analizleri.</p>
+                </div>
+                <div class="bg-gray-800 px-4 py-2 rounded text-sm text-green-400 font-mono animate-pulse">
+                    ● Sistem Çevrimiçi
+                </div>
+            </header>
 
+            <!-- Kartlar (Metrikler) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-gray-800 p-6 rounded-xl border border-gray-700">
+                    <p class="text-gray-400 text-sm font-medium">Toplam Simüle İşlem</p>
+                    <p class="text-3xl font-bold mt-2 text-white" id="totalRequests">1,248</p>
+                    <span class="text-xs text-green-400 mt-1 block">↑ %12 (Son 1 saat)</span>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl border border-gray-700">
+                    <p class="text-gray-400 text-sm font-medium">RNG Adalet Oranı (RTP)</p>
+                    <p class="text-3xl font-bold mt-2 text-indigo-400">%96.4</p>
+                    <span class="text-xs text-gray-400 mt-1 block">Teorik Limit: %96.5</span>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl border border-gray-700">
+                    <p class="text-gray-400 text-sm font-medium">Sunucu Gecikmesi</p>
+                    <p class="text-3xl font-bold mt-2 text-emerald-400">14 ms</p>
+                    <span class="text-xs text-emerald-500 mt-1 block">Kararlı Performans</span>
+                </div>
+            </div>
+
+            <!-- Grafik ve Canlı Akış -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                
+                <!-- Grafik Alanı (2 Kolon Kaplar) -->
+                <div class="lg:col-span-2 bg-gray-800 p-6 rounded-xl border border-gray-700">
+                    <h3 class="text-lg font-semibold mb-4 text-gray-300">Dağılım Eğrisi Analizi</h3>
+                    <div class="h-64">
+                        <canvas id="analyticsChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Canlı Sistem Logları -->
+                <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 flex flex-col h-full">
+                    <h3 class="text-lg font-semibold mb-4 text-gray-300">Canlı RNG Logları</h3>
+                    <div id="logConsole" class="flex-1 bg-black p-4 rounded font-mono text-xs text-green-400 space-y-2 overflow-y-auto h-64 max-h-64">
+                        <p>[INFO] Sistem başlatıldı...</p>
+                        <p>[INFO] Çekirdek RNG modülü aktif.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Panel Dinamikleri için JavaScript -->
+    <script>
+        // 1. Grafik Kurulumu (Chart.js)
+        const ctx = document.getElementById('analyticsChart').getContext('2d');
+        const analyticsChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00'],
+                datasets: [{
+                    label: 'Sistem Yükü (İşlem/Sn)',
+                    data: [65, 78, 72, 89, 85, 102],
+                    borderColor: 'rgb(99, 102, 241)',
+                    backgroundColor: 'rgba(99, 102, 241, 0.1)',
+                    tension: 0.3,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { labels: { color: '#9ca3af' } }
+                },
+                scales: {
+                    y: { grid: { color: '#374151' }, ticks: { color: '#9ca3af' } },
+                    x: { grid: { color: '#374151' }, ticks: { color: '#9ca3af' } }
+                }
+            }
+        });
+
+        // 2. Canlı Simülasyon (Log ve Veri Güncelleme)
+        let totalRequests = 1248;
+        const logConsole = document.getElementById('logConsole');
+        const totalRequestsEl = document.getElementById('totalRequests');
+
+        setInterval(() => {
+            // Toplam işlem sayısını artır
+            totalRequests += Math.floor(Math.random() * 3) + 1;
+            totalRequestsEl.innerText = totalRequests.toLocaleString();
+
+            // Rastgele log üret
+            const timestamp = new Date().toLocaleTimeString();
+            const simulatedSeed = Math.random().toString(16).substr(2, 8).toUpperCase();
+            const outcome = Math.floor(Math.random() * 100);
+            
+            const newLog = document.createElement('p');
+            newLog.innerHTML = `<span class="text-gray-500">[${timestamp}]</span> <span class="text-indigo-400">SEED:${simulatedSeed}</span> -> Sonuç: <span class="text-yellow-400">${outcome}</span>`;
+            
+            logConsole.appendChild(newLog);
+            
+            // Konsolu otomatik aşağı kaydır
+            logConsole.scrollTop = logConsole.scrollHeight;
+
+            // Konsolun çok şişmesini önle (Son 15 logu tut)
+            if (logConsole.children.length > 15) {
+                logConsole.removeChild(logConsole.children[0]);
+            }
+
+            // Grafiğe canlı veri ekle/güncelle (Opsiyonel görsel hareket)
+            if(Math.random() > 0.7) {
+                analyticsChart.data.datasets[0].data.shift();
+                analyticsChart.data.datasets[0].data.push(Math.floor(Math.random() * 40) + 70);
+                analyticsChart.update();
+            }
+
+        }, 2000); // Her 2 saniyede bir güncelle
+    </script>
 </body>
 </html>
