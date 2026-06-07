@@ -1,58 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>Mini Oyun</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>BetPlay</title>
 <style>
-body{margin:0;background:#111;color:#fff;text-align:center;font-family:Arial}
-#oyun{width:400px;height:500px;background:#222;margin:20px auto;position:relative;overflow:hidden;border-radius:15px}
-#oyuncu{width:50px;height:50px;background:#00f;position:absolute;bottom:10px;left:175px;border-radius:10px}
-.engel{width:50px;height:50px;background:red;position:absolute;top:-50px;border-radius:10px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#0f172a;color:#fff}
+header{background:#111827;padding:20px}
+.logo{font-size:32px;font-weight:bold;color:#3b82f6}
+nav a{color:#fff;text-decoration:none;margin:0 15px}
+.hero{padding:100px 20px;text-align:center;background:linear-gradient(135deg,#0f172a,#1e3a8a)}
+.hero h1{font-size:50px;margin-bottom:15px}
+.hero p{font-size:18px;color:#cbd5e1}
+.btn{display:inline-block;background:#3b82f6;color:#fff;padding:14px 30px;border-radius:8px;text-decoration:none;margin-top:20px}
+.cards{display:flex;gap:20px;justify-content:center;padding:50px;flex-wrap:wrap}
+.card{background:#1e293b;padding:25px;width:280px;border-radius:15px}
+footer{background:#111827;padding:25px;text-align:center;color:#94a3b8}
 </style>
 </head>
 <body>
-<h2>Kaçış Oyunu</h2>
-<p>Skor: <span id="skor">0</span></p>
-<div id="oyun">
-<div id="oyuncu"></div>
+
+<header>
+<div class="logo">BP</div>
+<nav>
+<a href="#">Ana Sayfa</a>
+<a href="#">Hakkımızda</a>
+<a href="#">Hizmetler</a>
+<a href="#">İletişim</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>BetPlay Kurumsal Platform</h1>
+<p>Modern tasarım, güvenli altyapı ve profesyonel hizmet anlayışı.</p>
+<a href="#" class="btn">Hemen Başla</a>
+</section>
+
+<section class="cards">
+<div class="card">
+<h3>Güvenlik</h3>
+<p>SSL koruması ve gelişmiş güvenlik sistemleri.</p>
 </div>
+<div class="card">
+<h3>Hızlı Destek</h3>
+<p>7/24 müşteri hizmetleri desteği.</p>
+</div>
+<div class="card">
+<h3>Mobil Uyumlu</h3>
+<p>Tüm cihazlarda kusursuz görünüm.</p>
+</div>
+</section>
 
-<script>
-const oyun=document.getElementById("oyun");
-const oyuncu=document.getElementById("oyuncu");
-let x=175,skor=0;
+<footer>
+© 2026 BetPlay - Tüm Hakları Saklıdır
+</footer>
 
-document.addEventListener("keydown",e=>{
-if(e.key==="ArrowLeft"&&x>0)x-=20;
-if(e.key==="ArrowRight"&&x<350)x+=20;
-oyuncu.style.left=x+"px";
-});
-
-function engelOlustur(){
-let e=document.createElement("div");
-e.className="engel";
-e.style.left=Math.random()*350+"px";
-oyun.appendChild(e);
-let y=-50;
-let hareket=setInterval(()=>{
-y+=5;
-e.style.top=y+"px";
-
-if(y>500){
-e.remove();
-clearInterval(hareket);
-skor++;
-document.getElementById("skor").innerText=skor;
-}
-
-let ex=e.offsetLeft,ey=y;
-if(ex<x+50&&ex+50>x&&ey>440){
-alert("Oyun Bitti! Skor: "+skor);
-location.reload();
-}
-},30);
-}
-setInterval(engelOlustur,1000);
-</script>
 </body>
 </html>
