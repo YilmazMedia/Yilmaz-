@@ -1,25 +1,132 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>WebSitem</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bonus Merkezi</title>
+
 <style>
-body{
-background:#111;
-color:white;
-text-align:center;
-font-family:Arial;
-padding-top:100px;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
-h1{
+
+body{
+background:#0f0f0f;
+color:white;
+}
+
+header{
+background:#161616;
+padding:20px;
+text-align:center;
+border-bottom:2px solid #00ff88;
+}
+
+.logo{
+font-size:32px;
+font-weight:bold;
 color:#00ff88;
+}
+
+.hero{
+padding:50px 20px;
+text-align:center;
+}
+
+.hero h1{
+font-size:40px;
+margin-bottom:10px;
+}
+
+.hero p{
+color:#bbb;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+padding:20px;
+max-width:1200px;
+margin:auto;
+}
+
+.card{
+background:#1a1a1a;
+border-radius:15px;
+padding:20px;
+text-align:center;
+box-shadow:0 0 10px rgba(0,255,136,.15);
+}
+
+.card h2{
+color:#00ff88;
+margin-bottom:10px;
+}
+
+.bonus{
+font-size:30px;
+font-weight:bold;
+margin:15px 0;
+}
+
+.btn{
+display:inline-block;
+padding:12px 25px;
+background:#00ff88;
+color:black;
+text-decoration:none;
+border-radius:10px;
+font-weight:bold;
+}
+
+footer{
+text-align:center;
+padding:20px;
+color:#888;
 }
 </style>
 </head>
+
 <body>
 
-<h1>WebSitem</h1>
-<p>İlk web sitem yayında.</p>
+<header>
+<div class="logo">BONUS MERKEZİ</div>
+</header>
+
+<section class="hero">
+<h1>Güncel Bonus Fırsatları</h1>
+<p>En yeni kampanyaları tek sayfada inceleyin.</p>
+</section>
+
+<div class="cards">
+
+<div class="card">
+<h2>Site 1</h2>
+<div class="bonus">₺1000</div>
+<a href="#" class="btn">İncele</a>
+</div>
+
+<div class="card">
+<h2>Site 2</h2>
+<div class="bonus">₺2500</div>
+<a href="#" class="btn">İncele</a>
+</div>
+
+<div class="card">
+<h2>Site 3</h2>
+<div class="bonus">₺5000</div>
+<a href="#" class="btn">İncele</a>
+</div>
+
+</div>
+
+<footer>
+© 2026 Bonus Merkezi
+</footer>
 
 </body>
 </html>
